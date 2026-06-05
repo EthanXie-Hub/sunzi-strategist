@@ -1,0 +1,7 @@
+interface:
+  display_name: "孙子·战略诊断器"
+  short_description: "用孙子兵法算胜、选战场、定打法与止损线"
+  default_prompt: "Use $sunzi-strategist to diagnose this strategic decision, identify the decisive unknown, choose the battlefield, and define a stop-loss line."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>孙子·战略诊断器 宣传图</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1600px; height: 900px; overflow: hidden; }
+  body { font-family: "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif; background: #101313; color: #f2efe7; }
+  .slide { display: none; width: 1600px; height: 900px; position: relative; overflow: hidden; background: #101313; }
+  .slide.active { display: block; }
+  .inner { position: relative; z-index: 2; height: 100%; padding: 70px 82px; }
+  .eyebrow { font-size: 22px; color: #b94939; font-weight: 700; letter-spacing: 0; margin-bottom: 24px; }
+  h1 { font-family: "Songti SC", "STSong", serif; font-size: 82px; line-height: 1.08; margin: 0; font-weight: 700; letter-spacing: 0; }
+  h2 { font-family: "Songti SC", "STSong", serif; font-size: 54px; line-height: 1.15; margin: 0; letter-spacing: 0; }
+  p { margin: 0; }
+  .muted { color: #a8aaa6; }
+  .verm { color: #d15a46; }
+  .jade { color: #7fa79a; }
+  .rule { height: 2px; width: 92px; background: #b94939; margin: 30px 0; }
+  .footer { position: absolute; z-index: 3; left: 82px; right: 82px; bottom: 44px; display: flex; justify-content: space-between; color: #9ea19d; font-size: 18px; }
+  .tagrow { display: flex; gap: 22px; margin-top: 42px; color: #c8c9c4; font-size: 21px; }
+  .tag { border-left: 3px solid #b94939; padding-left: 12px; }
+  .cover { background-image: url("../source/strategy-table.png"); background-size: cover; background-position: center; }
+  .cover::after { content: ""; position: absolute; inset: 0; background: rgba(8, 11, 11, 0.44); }
+  .cover .inner { width: 820px; padding-top: 132px; }
+  .cover .sub { font-size: 28px; line-height: 1.65; color: #d7d5cd; max-width: 700px; }
+  .five { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 56px; }
+  .layer { min-height: 350px; padding: 28px 24px; border-top: 4px solid #b94939; background: #181d1c; }
+  .layer:nth-child(even) { border-top-color: #769b90; }
+  .num { font-size: 18px; color: #999d99; margin-bottom: 28px; }
+  .layer h3 { font-family: "Songti SC", "STSong", serif; font-size: 31px; margin: 0 0 20px; letter-spacing: 0; }
+  .layer p { color: #b8bbb6; font-size: 19px; line-height: 1.65; }
+  .deliver { margin-top: 34px; padding: 22px 28px; border-left: 4px solid #769b90; background: #141817; font-size: 22px; color: #d5d6d1; }
+  .casegrid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 54px; margin-top: 50px; }
+  .decision { background: #eee9de; color: #171b1a; padding: 38px; border-top: 6px solid #b94939; }
+  .decision .label { color: #a13e31; font-size: 20px; font-weight: 700; }
+  .decision .big { font-family: "Songti SC", "STSong", serif; font-size: 48px; line-height: 1.25; margin-top: 18px; }
+  .decision .why { font-size: 21px; line-height: 1.6; color: #444845; margin-top: 22px; }
+  .steps { display: grid; gap: 14px; }
+  .step { padding: 20px 24px; background: #181d1c; border-left: 4px solid #769b90; }
+  .step b { display: block; color: #e3e1d9; font-size: 21px; margin-bottom: 8px; }
+  .step span { color: #aeb1ac; font-size: 18px; line-height: 1.5; }
+  .installgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; margin-top: 48px; }
+  .panel { background: #181d1c; padding: 32px; border-top: 4px solid #769b90; min-height: 440px; }
+  .panel h3 { font-size: 25px; margin: 0 0 20px; }
+  pre { margin: 0 0 20px; white-space: pre-wrap; font-family: "SFMono-Regular", Menlo, monospace; font-size: 18px; line-height: 1.65; color: #deddd5; background: #0c0f0f; padding: 20px; }
+  .tree { font-family: "SFMono-Regular", Menlo, monospace; color: #c8cbc5; font-size: 18px; line-height: 1.72; }
+  .note { margin-top: 22px; font-size: 19px; color: #aeb1ac; line-height: 1.55; }
+</style>
+</head>
+<body>
+  <section class="slide cover" data-slide="1">
+    <div class="inner">
+      <div class="eyebrow">SPATIUM SERIES · OPEN SOURCE</div>
+      <h1>孙子·<br>战略诊断器</h1>
+      <div class="rule"></div>
+      <p class="sub">先算能不能赢，再定什么算赢；<br>先立于不败，再寻找可胜。</p>
+      <div class="tagrow">
+        <div class="tag">决定性未知</div>
+        <div class="tag">选战场</div>
+        <div class="tag">对手反制</div>
+        <div class="tag">止损线</div>
+      </div>
+    </div>
+    <div class="footer"><span>EthanXie-Hub / sunzi-strategist</span><span>MIT · AI SKILL</span></div>
+  </section>
+
+  <section class="slide" data-slide="2">
+    <div class="inner">
+      <div class="eyebrow">不是古文包装，而是五层决策算账</div>
+      <h2>从“该不该打”到“何时必须撤”</h2>
+      <div class="five">
+        <div class="layer"><div class="num">01 / 庙算</div><h3>先胜</h3><p>五事七计扫描。赢面来自哪里？死穴在哪？不靠运气凭什么赢？</p></div>
+        <div class="layer"><div class="num">02 / 目标</div><h3>全胜</h3><p>什么才算赢？能否伐谋、伐交，避免惨胜与长期消耗？</p></div>
+        <div class="layer"><div class="num">03 / 布局</div><h3>形势虚实</h3><p>先守不败底盘，只选一个主攻切口，明确不打清单。</p></div>
+        <div class="layer"><div class="num">04 / 应变</div><h3>九变</h3><p>推演对手最可能的反制，判断现在该进、试、等还是退。</p></div>
+        <div class="layer"><div class="num">05 / 自检</div><h3>五危六败</h3><p>撞击情绪、面子、轻敌、战线过宽和外行指挥等失败模式。</p></div>
+      </div>
+      <div class="deliver">每次必须交付：明确判断 · 决定性未知 · 主战场 · 对手反制 · 止损线 · 翻盘条件</div>
+    </div>
+    <div class="footer"><span>五层战略诊断</span><span>能执行 · 能验证 · 能撤退</span></div>
+  </section>
+
+  <section class="slide" data-slide="3">
+    <div class="inner">
+      <div class="eyebrow">真实问题，不给“做差异化”式空话</div>
+      <h2>资源少于成熟竞品，该不该正面打？</h2>
+      <div class="casegrid">
+        <div class="decision">
+          <div class="label">战略判断 · 信心中</div>
+          <div class="big">不正面打。<br>缩小战场试。</div>
+          <div class="why">成熟竞品在规模、渠道和流程上占实处。你的任务不是补齐所有劣势，而是验证一个他们不愿兼顾、用户愿付费的窄切口。</div>
+        </div>
+        <div class="steps">
+          <div class="step"><b>决定性未知</b><span>用户是否愿意为窄场景真实付费，而不是只说“不错”。</span></div>
+          <div class="step"><b>主战场</b><span>高频、痛点明确、成熟竞品改流程成本高的细分场景。</span></div>
+          <div class="step"><b>对手反制</b><span>复制功能、短期降价、抢渠道；提前准备不依赖单一功能的优势。</span></div>
+          <div class="step"><b>止损线</b><span>30 天无真实付费，或只能靠不可持续折扣成交，停止投入。</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span>避实击虚 · 我专敌分</span><span>先用小试换真相</span></div>
+  </section>
+
+  <section class="slide" data-slide="4">
+    <div class="inner">
+      <div class="eyebrow">开放源码 · Markdown 核心 · 可迁移结构</div>
+      <h2>安装后，拿真实局面来算</h2>
+      <div class="installgrid">
+        <div class="panel">
+          <h3>Codex 本地安装</h3>
+          <pre>unzip sunzi-strategist.skill \
+  -d ~/.codex/skills</pre>
+          <h3>从 GitHub 安装</h3>
+          <pre>python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
+  --repo EthanXie-Hub/sunzi-strategist \
+  --path sunzi-strategist</pre>
+          <p class="note">安装后重启 Codex。其他支持 Skill 的平台可复制整个核心文件夹，并按平台要求适配发现目录。</p>
+        </div>
+        <div class="panel">
+          <h3>核心结构</h3>
+          <div class="tree">sunzi-strategist/<br>
+          ├── SKILL.md<br>
+          ├── agents/openai.yaml<br>
+          └── references/<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;├── scorecards-and-gates.md<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;└── edge-lenses.md<br><br>
+          dist/<br>
+          └── sunzi-strategist.skill</div>
+          <p class="note"><span class="verm">边界：</span>不保证必胜，不把未核实信息当事实，不鼓励欺骗、报复、威胁或违法。</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span>github.com/EthanXie-Hub/sunzi-strategist</span><span>MIT LICENSE</span></div>
+  </section>
+<script>
+  const slide = new URLSearchParams(location.search).get("slide") || "1";
+  document.querySelector(`[data-slide="${slide}"]`).classList.add("active");
+</script>
+</body>
+</html>

@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.3.2 — 2026-06-11（审查遗留项清零）
+- AUDIT_REPORT 第二人称表述中性化；LICENSE 项标记已解决。
+- LICENSE 复制到 `sunzi-strategist/LICENSE`，随 dist 包分发（开源分发惯例）。
+- static-checks 新增 2 项守卫：skill 目录含 LICENSE、.skill 包含 LICENSE（共 40 项）。
+- 仓库收敛为单一事实源：本地即 GitHub clone，旧开发历史存档于分支 `archive/local-dev-history`；打包命令适配新布局。
+
 ## v0.3.1 — 2026-06-11（发布准备）
 - 新增 LICENSE（MIT）。
 - 新增 evals/static-checks.py：自动化静态回归（frontmatter 约束/必备段落/链接完整/必备文件/.skill 包卫生/安装副本同步）。

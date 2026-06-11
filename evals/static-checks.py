@@ -62,6 +62,7 @@ for f in ["references/framework-ledger.md", "references/scorecards-and-gates.md"
     check(f"skill 文件存在: {f}", (SKILL_DIR / f).exists())
 examples = list((SKILL_DIR / "examples").glob("*.md")) if (SKILL_DIR / "examples").exists() else []
 check("examples ≥5 篇", len(examples) >= 5, f"found {len(examples)}")
+check("skill 目录含 LICENSE（随包分发）", (SKILL_DIR / "LICENSE").exists())
 
 # 5. .skill 包卫生（找得到才查：发布仓在 dist/，本地开发在仓库旁）
 pkg = next((p for p in [REPO / "dist/sunzi-strategist.skill",
@@ -71,6 +72,7 @@ if pkg:
     check(".skill 不含 .git", "/.git/" not in out)
     check(".skill 不含 evals/", "evals/" not in out)
     check(".skill 含 SKILL.md 路径", "sunzi-strategist/SKILL.md" in out)
+    check(".skill 含 LICENSE", "sunzi-strategist/LICENSE" in out)
 else:
     print("ℹ️  未找到 .skill 包，跳过包检查")
 

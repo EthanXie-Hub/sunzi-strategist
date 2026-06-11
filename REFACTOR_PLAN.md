@@ -1,0 +1,50 @@
+# 重构方案与路线图
+
+## 新定位（不变量）
+- 名称：**sunzi-strategist**（保留，已通过召回验证）；中文名：孙子·战略诊断器。
+- 一句话：输入你的现实难题，用《孙子兵法》的核心框架帮你判断局势、胜算、风险与下一步行动。
+- 五不：不占卜、不玄学、不鸡汤、不教算计、不鼓励攻击。目标：**减少误判、降低消耗、提高胜率。**
+
+## 新文件结构
+
+```
+sunzi-strategist/
+├── SKILL.md                      # 唯一主 Prompt（单一事实源，进 .skill 包）
+├── README.md                     # 给人看的：是什么/怎么装/怎么问/边界
+├── CHANGELOG.md                  # 版本史
+├── AUDIT_REPORT.md               # 本次审查报告（仓库文档，不进运行时逻辑）
+├── REFACTOR_PLAN.md              # 本文件
+├── references/                   # 运行时按需加载（进 .skill 包）
+│   ├── framework-ledger.md       # 全书五类台账+原文锚点（知识底座，单一来源）
+│   ├── scorecards-and-gates.md   # 七计评分/市场五关/90天验证/对手反制
+│   └── edge-lenses.md            # 边角透镜
+├── examples/                     # 真实诊断范例（进包；模型可按需读来校准深度与腔调）
+│   ├── price-war.md / new-cafe.md / career-choice.md / team-conflict.md / client-retention.md
+├── feedback/                     # 反馈与学习闭环（进包；模式 E 复盘时读 AAR）
+│   ├── feedback-schema.md / after-action-review.md / learning-loop.md / improvement-suggestions-template.md
+└── evals/                        # 测试与回归（不进包：打包脚本自动排除 evals/）
+    ├── test-cases.md / scoring-rubric.md / regression-checklist.md
+```
+
+设计原则：**SKILL.md 是唯一调度中枢**——按需引用 references/examples/feedback，绝不复制内容到第二处；evals 永不进包。
+
+## 架构要点
+- **Prompt 架构**：frontmatter description（召回）→ 6 使用原则（判断纪律）→ 五层主流程（诊断逻辑）→ 输出模式 A–F（场景调度）→ 质量闸门（出厂检验）→ 声音（腔调）→ 参考文件（按需装载）。
+- **知识库架构**：framework-ledger 是底座（含核心/边角分级与原文锚点）；scorecards 是量化工具；edge-lenses 是情境工具。三者互不重叠。
+- **反馈学习机制**（可控、可审查、可回滚）：对话内邀请反馈 → 用户按 feedback-schema 记录 → 积累后人工跑 learning-loop → 生成 improvement-suggestions → 人工 review → 改 SKILL.md → 升版本号 + CHANGELOG → 跑 evals/regression-checklist 防退化。**skill 不自动改自己的 Prompt。**
+- **评估机制**：evals/test-cases.md 20 用例（8 触发校准 + 12 质量场景）；scoring-rubric 10 维 0–2 分；regression-checklist 是每次改动后的最低门槛。
+
+## 打包（重要 gotcha）
+skill-creator 的 package_skill.py **不排除 .git/**，git init 后用它打包会把整个 git 历史塞进 .skill。安全打包命令：
+
+```bash
+cd ~ && rm -f sunzi-strategist.skill && zip -rq sunzi-strategist.skill sunzi-strategist \
+  -x "sunzi-strategist/.git/*" "sunzi-strategist/evals/*" \
+     "sunzi-strategist/AUDIT_REPORT.md" "sunzi-strategist/REFACTOR_PLAN.md" "*.DS_Store"
+```
+
+## 路线图
+- **v0.3.0（本次）**：开源工程化——git/README/CHANGELOG/evals/examples/feedback/ledger/模式 F。
+- **v0.4**：回归清单脚本化（结构断言自动跑）；英文 README + 双语 description；LICENSE 确认后推 GitHub。
+- **v0.5**：真实反馈案例 ≥10 个后第一轮 learning-loop 迭代；案例库扩充（谈判/管理各 2 篇）。
+- **长期**：触发召回的量化测试（仅当重新依赖自动召回时做）；多模型适配说明（豆包/Kimi/DeepSeek 路径）。

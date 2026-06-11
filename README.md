@@ -1,5 +1,9 @@
 # 孙子·战略诊断器
 
+[![Release](https://img.shields.io/github/v/release/EthanXie-Hub/sunzi-strategist?label=release&color=brightgreen)](https://github.com/EthanXie-Hub/sunzi-strategist/releases/latest)
+[![Checks](https://github.com/EthanXie-Hub/sunzi-strategist/actions/workflows/checks.yml/badge.svg)](https://github.com/EthanXie-Hub/sunzi-strategist/actions/workflows/checks.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 ![孙子·战略诊断器](assets/promo/01-cover.png)
 
 一个把《孙子兵法》转成现代决策算账框架的 AI Skill。
@@ -13,7 +17,7 @@
 
 > 先算能不能赢，再定什么算赢；先立于不败，再寻找可胜；先选战场，再谈打法。
 
-当前版本 **v0.3.1**（[CHANGELOG](CHANGELOG.md)）：三层架构——兵法知识 / 现实问题诊断器 / 反馈学习循环。
+三层架构：兵法知识 / 现实问题诊断器 / 反馈学习循环。当前版本见上方徽章，更新明细见 [CHANGELOG](CHANGELOG.md)。
 
 ## 它交付什么
 
@@ -53,15 +57,21 @@
 
 ## 安装
 
-### 下载安装包
+### 下载安装包（推荐）
 
-从 [Releases](https://github.com/EthanXie-Hub/sunzi-strategist/releases) 下载 `sunzi-strategist.skill`，解压到 Codex Skills 目录：
+每个版本的安装包由 CI 自动构建并附在 [Releases](https://github.com/EthanXie-Hub/sunzi-strategist/releases/latest)，最新版固定直链：
 
 ```bash
+curl -L -o sunzi-strategist.skill \
+  https://github.com/EthanXie-Hub/sunzi-strategist/releases/latest/download/sunzi-strategist.skill
+
+# Codex
 unzip sunzi-strategist.skill -d ~/.codex/skills
+# Claude Code
+unzip sunzi-strategist.skill -d ~/.claude/skills
 ```
 
-安装后重启 Codex。
+claude.ai：设置 → Capabilities → Skills，直接上传 `sunzi-strategist.skill`。安装后重启对应客户端。
 
 ### 从 GitHub 安装到 Codex
 

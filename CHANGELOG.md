@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.4.0 — 2026-06-11（发布工程）
+- 新增 GitHub Actions：`checks`（push/PR 自动跑 40 项静态检查）、`release`（推 tag 自动构建 .skill、验证、创建 Release 并附安装包）。
+- README 专业化：徽章行（release/CI/license，版本徽章自动跟随最新 Release）；安装改为 `releases/latest/download` 固定直链；补 Claude Code 与 claude.ai 安装路径；不再硬编码版本号。
+- 补历史 tag：v0.2.0（初始发布内容）、v0.3.1、v0.3.2。
+- REFACTOR_PLAN 新增 tag 驱动发布流程。
+
 ## v0.3.2 — 2026-06-11（审查遗留项清零）
 - AUDIT_REPORT 第二人称表述中性化；LICENSE 项标记已解决。
 - LICENSE 复制到 `sunzi-strategist/LICENSE`，随 dist 包分发（开源分发惯例）。

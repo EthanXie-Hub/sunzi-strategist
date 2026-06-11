@@ -1,0 +1,29 @@
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build .skill package
+        run: |
+          rm -f dist/sunzi-strategist.skill
+          zip -rq dist/sunzi-strategist.skill sunzi-strategist -x "*.DS_Store"
+
+      - name: Verify (static checks must pass before publishing)
+        run: python3 evals/static-checks.py
+
+      - name: Create GitHub Release with package asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/sunzi-strategist.skill \
+            --title "$GITHUB_REF_NAME" --generate-notes

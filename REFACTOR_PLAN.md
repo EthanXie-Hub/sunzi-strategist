@@ -47,6 +47,14 @@ python3 evals/static-checks.py
 改完源文件 → 上面一条命令完成 构建+验证 → 同步安装副本（`cp -r sunzi-strategist/* ~/.codex/skills/sunzi-strategist/`）→ commit + push。
 仍然注意：**不要**用 skill-creator 的 package_skill.py 对仓库根打包（它不排除 .git）。
 
+## 发布流程（tag 驱动，自动化）
+
+1. CHANGELOG 加新版本段 → commit 推 main → 等 `checks` 工作流绿灯。
+2. 打 tag 并推送：`git tag -a vX.Y.Z -m "一句话摘要" && git push origin vX.Y.Z`。
+3. `release` 工作流自动接手：构建 .skill → 跑 static-checks（不过不发布）→ 创建 GitHub Release 并附安装包 + 自动生成 release notes。
+
+约定：README **不写死版本号**（徽章自动显示 latest release）；安装直链固定为 `releases/latest/download/sunzi-strategist.skill`，永远指向最新包——避免再次出现"Releases 停在旧版、关注者看不到升级"。
+
 ## 路线图
 - **v0.3.0（本次）**：开源工程化——git/README/CHANGELOG/evals/examples/feedback/ledger/模式 F。
 - **v0.4**：回归清单脚本化（结构断言自动跑）；英文 README + 双语 description；LICENSE 确认后推 GitHub。

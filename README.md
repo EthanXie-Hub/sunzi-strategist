@@ -38,15 +38,25 @@ cp -r sunzi-strategist ~/.codex/skills/
 
 想要更深，说"完整展开 / 五层 / 详细"；要量化对比说"按七计打分"；选方案说"帮我对比 A/B/C"；行动结束后回来说"复盘"。
 
+## 三层架构
+
+| 层 | 职责 | 落在哪 |
+|---|---|---|
+| **第一层 · 兵法知识** | 全书台账（框架/原则/技法/反模式/声音 + 原文锚点 + 核心/边角分级）、七计评分尺度、边角透镜 | `references/` |
+| **第二层 · 现实问题诊断器** | 6 条使用原则 → 五层诊断流程 → 输出模式 A–F → 质量闸门；按需调取第一层 | `SKILL.md`（唯一主 Prompt） |
+| **第三层 · 反馈学习循环** | 运行中：邀请反馈 + AAR 复盘七问；版本间：聚合 → 人工 review → 改动 → 回归测试 → 版本化 | `feedback/` + `evals/` + git/CHANGELOG |
+
+学习发生在**版本之间**（可审查、可回滚），不发生在运行之中——skill 不自动改自己的 Prompt。
+
 ## 仓库结构
 
 | 目录 | 内容 |
 |---|---|
-| `SKILL.md` | 主 Prompt：使用原则、五层诊断流程、输出模式 A–F、质量闸门 |
-| `references/` | 知识底座：全书台账（含原文锚点）、七计评分表、边角透镜 |
-| `examples/` | 5 个真实诊断范例（价格战/开店/选 offer/同事冲突/客户复购） |
-| `feedback/` | 反馈 schema、复盘七问（AAR）、可控学习循环 |
-| `evals/` | 20 个测试用例、评分细则、回归清单（改动后必跑） |
+| `SKILL.md` | 主 Prompt（文件名必须大写，加载器硬性要求） |
+| `references/` | 第一层：framework-ledger 台账、scorecards 评分表、edge-lenses 边角透镜 |
+| `examples/` | 5 个真实诊断范例（竞争分析·价格战/开店/选 offer/同事冲突/客户复购） |
+| `feedback/` | 第三层运行侧：反馈 schema、AAR 七问、可控学习循环 |
+| `evals/` | 第三层验收侧：20 测试用例、评分细则、回归清单、`static-checks.py`（自动静态检查，**不进 .skill 包**） |
 
 ## 伦理边界
 
@@ -62,4 +72,4 @@ cp -r sunzi-strategist ~/.codex/skills/
 
 ## License
 
-待定（见 AUDIT_REPORT.md 第 8 条）。
+MIT（见 LICENSE）。

@@ -34,14 +34,18 @@ sunzi-strategist/
 - **反馈学习机制**（可控、可审查、可回滚）：对话内邀请反馈 → 用户按 feedback-schema 记录 → 积累后人工跑 learning-loop → 生成 improvement-suggestions → 人工 review → 改 SKILL.md → 升版本号 + CHANGELOG → 跑 evals/regression-checklist 防退化。**skill 不自动改自己的 Prompt。**
 - **评估机制**：evals/test-cases.md 20 用例（8 触发校准 + 12 质量场景）；scoring-rubric 10 维 0–2 分；regression-checklist 是每次改动后的最低门槛。
 
-## 打包（重要 gotcha）
-skill-creator 的 package_skill.py **不排除 .git/**，git init 后用它打包会把整个 git 历史塞进 .skill。安全打包命令：
+## 打包
+
+> 2026-06-11 起本仓库收敛为单一事实源（GitHub 仓布局）：skill 本体在 `sunzi-strategist/` 子目录，**只含运行时文件**，构建无需排除项：
 
 ```bash
-cd ~ && rm -f sunzi-strategist.skill && zip -rq sunzi-strategist.skill sunzi-strategist \
-  -x "sunzi-strategist/.git/*" "sunzi-strategist/evals/*" \
-     "sunzi-strategist/AUDIT_REPORT.md" "sunzi-strategist/REFACTOR_PLAN.md" "*.DS_Store"
+cd ~/sunzi-strategist && rm -f dist/sunzi-strategist.skill && \
+zip -rq dist/sunzi-strategist.skill sunzi-strategist -x "*.DS_Store" && \
+python3 evals/static-checks.py
 ```
+
+改完源文件 → 上面一条命令完成 构建+验证 → 同步安装副本（`cp -r sunzi-strategist/* ~/.codex/skills/sunzi-strategist/`）→ commit + push。
+仍然注意：**不要**用 skill-creator 的 package_skill.py 对仓库根打包（它不排除 .git）。
 
 ## 路线图
 - **v0.3.0（本次）**：开源工程化——git/README/CHANGELOG/evals/examples/feedback/ledger/模式 F。

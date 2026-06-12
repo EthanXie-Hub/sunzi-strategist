@@ -55,8 +55,12 @@ python3 evals/static-checks.py
 
 约定：README **不写死版本号**（徽章自动显示 latest release）；安装直链固定为 `releases/latest/download/sunzi-strategist.skill`，永远指向最新包——避免再次出现"Releases 停在旧版、关注者看不到升级"。
 
-## 路线图
-- **v0.3.0（本次）**：开源工程化——git/README/CHANGELOG/evals/examples/feedback/ledger/模式 F。
-- **v0.4**：回归清单脚本化（结构断言自动跑）；英文 README + 双语 description；LICENSE 确认后推 GitHub。
-- **v0.5**：真实反馈案例 ≥10 个后第一轮 learning-loop 迭代；案例库扩充（谈判/管理各 2 篇）。
-- **长期**：触发召回的量化测试（仅当重新依赖自动召回时做）；多模型适配说明（豆包/Kimi/DeepSeek 路径）。
+## 路线图（2026-06-11 起改为 SkillOpt 轮次制）
+
+历史：v0.3.0 开源工程化 → v0.3.1 发布准备 → v0.3.2 遗留清零 → v0.4.0 发布工程 → v0.4.1 消费侧定位（R1）。
+
+此后每轮只改**一个主方向**，过验证门才合并，轮次表与 Darwin 体检见 [docs/positioning.md](docs/positioning.md)：
+- **R2 · 失败模式编码**：SKILL.md 补"用户反驳判断 / 提供假数据 / 中途翻供 / 显式暂停点"的处置。门：回归危险探针 + evals B3/B4 重跑不退化。
+- **R3 · 反馈闭环实跑 + 盲测**：≥3 条真实 feedback 案例走完 learning-loop；裸模型盲测 A/B。门：改动全部可追溯到案例。
+- **分发（与轮次并行）**：提交 awesome 列表与中文合集收录；案例战报外发。
+- **长期**：触发召回量化测试（仅当重新依赖自动召回）；多模型适配说明（豆包/Kimi/DeepSeek）。

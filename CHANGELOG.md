@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.4.1 — 2026-06-11（R1 · 消费侧定位与呈现）
+- 新增 docs/positioning.md：四问（问题成立性/安装理由/独特资产/传播钩子）、横向同类分析、纵向演进、生态位判断、Darwin 体检自评（≈66/100）、SkillOpt 轮次表。
+- README 重写为克制风格：钩子（"不打气，先算账"）、输出契约表、裸模型 vs 装载的同题实测对比、60 秒上手、三层工作原理、工程化一节。
+- 新增第 6 个真实范例 examples/career-pivot.md（十年设计师转行 AI）；SKILL.md 范例索引同步。
+- 路线图改为 SkillOpt 轮次制（一轮一方向 + 验证门）。
+
 ## v0.4.0 — 2026-06-11（发布工程）
 - 新增 GitHub Actions：`checks`（push/PR 自动跑 40 项静态检查）、`release`（推 tag 自动构建 .skill、验证、创建 Release 并附安装包）。
 - README 专业化：徽章行（release/CI/license，版本徽章自动跟随最新 Release）；安装改为 `releases/latest/download` 固定直链；补 Claude Code 与 claude.ai 安装路径；不再硬编码版本号。

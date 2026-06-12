@@ -180,5 +180,5 @@ description: >
 - [scorecards-and-gates.md](references/scorecards-and-gates.md)：七计 10 分评分尺度与证据口径、市场进入五关、90 天验证计划、对手反制清单。评分 / 竞品对比 / 市场进入 / GTM 时读。
 - [edge-lenses.md](references/edge-lenses.md)：九地、相敌（读信号）、风林火山、因粮于敌、围师必阙、率然等边角透镜。仅在明确相关时引用。
 - [framework-ledger.md](references/framework-ledger.md)：全书五类台账（框架/原则/技法/反模式/声音）+ 原文精确锚点 + 核心/边角分级。需要引用原文、或判断某透镜适不适合本题时读。
-- examples/：五个已验收的诊断范例（价格战/开店/选 offer/同事冲突伦理/客户复购）。对输出深度或腔调拿不准时，读一篇最接近的来校准。
+- examples/：六个已验收的诊断范例（价格战/开店/选 offer/同事冲突伦理/客户复购/转行抉择）。对输出深度或腔调拿不准时，读一篇最接近的来校准。
 - feedback/：复盘七问与反馈 schema，模式 E 时读。
